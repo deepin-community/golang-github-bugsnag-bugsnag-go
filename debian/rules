@@ -1,4 +1,8 @@
 #!/usr/bin/make -f
 
+export DH_GOLANG_EXCLUDES := \
+	examples features \
+	gin martini negroni revel
+
 %:
-	dh $@
+	dh $@ --builddirectory=_build --buildsystem=golang --with=golang

@@ -1,15 +1,33 @@
-Source: template-repository
-Section: unknown
+Source: golang-github-bugsnag-bugsnag-go
+Maintainer: Debian Go Packaging Team <team+pkg-go@tracker.debian.org>
+Uploaders: Tim Potter <tpot@hp.com>,
+           Anthony Fok <foka@debian.org>,
+Section: golang
+Testsuite: autopkgtest-pkg-go
 Priority: optional
-Maintainer: Tsic404 <liuheng@deepin.org>
-Build-Depends: debhelper (>= 11)
-Standards-Version: 4.1.3
-Homepage: https://github.com/deepin-community/template-repository
-#Vcs-Browser: https://salsa.debian.org/debian/deepin-community-template-repository
-#Vcs-Git: https://salsa.debian.org/debian/deepin-community-template-repository.git
+Build-Depends: debhelper-compat (= 13),
+               dh-golang,
+               golang-any,
+               golang-github-bitly-go-simplejson-dev,
+               golang-github-bugsnag-panicwrap-dev,
+               golang-github-google-uuid-dev,
+               golang-github-kardianos-osext-dev,
+               golang-github-pkg-errors-dev,
+Standards-Version: 4.6.2
+Vcs-Browser: https://salsa.debian.org/go-team/packages/golang-bugsnag-go
+Vcs-Git: https://salsa.debian.org/go-team/packages/golang-bugsnag-go.git
+Homepage: https://github.com/bugsnag/bugsnag-go
+Rules-Requires-Root: no
+XS-Go-Import-Path: github.com/bugsnag/bugsnag-go
 
-Package: template-repository
-Architecture: any
-Depends: ${shlibs:Depends}, ${misc:Depends}
-Description: <insert up to 60 chars description>
- <insert long description, indented with spaces>
+Package: golang-github-bugsnag-bugsnag-go-dev
+Architecture: all
+Depends: golang-github-bugsnag-panicwrap-dev,
+         golang-github-google-uuid-dev,
+         golang-github-pkg-errors-dev,
+         ${misc:Depends},
+Multi-Arch: foreign
+Description: automatic panic monitoring for Go applications
+ The Bugsnag Notifier for Golang gives you instant notification of
+ panics, or unexpected errors, in your golang app. Any unhandled panics
+ will trigger a notification to be sent to a bugsnag.com account.
